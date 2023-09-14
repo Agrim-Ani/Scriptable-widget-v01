@@ -24,7 +24,7 @@ router.get('/items', async(req,res)=>{
             await Task.deleteMany({_id: {$ne:recent_task_id}});
             console.log(recent_task_id);
         }
-        res.json(getTask[0].task);
+        res.status(200).json(getTask[0].task);
     } catch (error) {
         res.status(500).json({ error: 'Internal Server Error' });
     }
